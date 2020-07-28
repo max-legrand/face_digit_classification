@@ -7,6 +7,9 @@ fileOverview:   Driver to run classifications
 '''
 
 import argparse
+from global_obj import GlobalObj
+
+GLOBALS = GlobalObj()
 
 
 if __name__ == "__main__":
@@ -24,7 +27,18 @@ if __name__ == "__main__":
 
     if args.bayes:
         if args.digit:
-            pass
+            print("Naive Bayes Digit Classification:")
+            # Iterate over training sizes in increments of 10%
+            for counter in range(0, 10):
+                results = []
+                time_results = []
+
+                # Do 10 iterations of training + testing
+                for iteration in range(0, 10):
+                    print(f"Iteration: {iteration+1 + 10*counter}")
+                    training_size = 500*(counter+1)
+                    GLOBALS.load_digit_data(training_size)
+
         elif args.face:
             pass
 
