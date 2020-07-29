@@ -7,9 +7,20 @@ fileOverview:   Driver to run classifications
 '''
 
 import argparse
+import timeit
 from global_obj import GlobalObj
+from process_data import naive_bayes_digit_train, naive_bayes_digit_predict
+from statistics import mean, stdev
+from util import get_accuracy
+
 
 GLOBALS = GlobalObj()
+
+
+def format_print(text):
+    print("=====================================")
+    print(text)
+    print("=====================================")
 
 
 if __name__ == "__main__":
@@ -27,17 +38,40 @@ if __name__ == "__main__":
 
     if args.bayes:
         if args.digit:
-            print("Naive Bayes Digit Classification:")
+            format_print("Naive Bayes Digit Classification:")
             # Iterate over training sizes in increments of 10%
             for counter in range(0, 10):
                 results = []
                 time_results = []
 
-                # Do 10 iterations of training + testing
-                for iteration in range(0, 10):
-                    print(f"Iteration: {iteration+1 + 10*counter}")
+                # Do 5 iterations of training + testing
+                for iteration in range(0, 5):
+                    print(f"Run #{iteration+1 + 10*counter}")
                     training_size = 500*(counter+1)
                     GLOBALS.load_digit_data(training_size)
+
+                    print(f"Using training size: {training_size}")
+                    start_time = timeit.default_timer()
+
+                    # TRAIN THE DATA
+                    naive_bayes_digit_train(GLOBALS, training_size)
+
+                    end_time = timeit.default_timer()
+                    delta_time = end_time - start_time
+                    print("Training Finished...")
+                    print(f"Elapsed Time: {delta_time} sec")
+                    time_results.append(delta_time)
+                    print("Testing Data")
+                    # TEST THE DATA
+                    prediction_results = naive_bayes_digit_predict(GLOBALS)
+                    results.append(get_accuracy(prediction_results, GLOBALS.test_labels))
+                    print(f"Accuracy: {results[iteration]}%")
+                format_print(
+                                "Summary\n" + f"Training Size: {10*(counter+1)}%\n" +
+                                f"Average Training Time: {mean(time_results)} sec\n" +
+                                f"Mean Accuracy: {mean(results)}%\n" +
+                                f"Standard Deviation: {stdev(results)}%\n"
+                            )
 
         elif args.face:
             pass

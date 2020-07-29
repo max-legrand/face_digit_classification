@@ -31,46 +31,72 @@ def load_file_contents(images_filename, datasize, label_filename, isdigit):
         [list, list]: returns images list and labels list
     """
 
-    # Read in images file
-    images_contents = [line.strip() for line in open(images_filename).readlines()]
-    shuffled_images_contents = []
-    # Read in labels file
-    labels_content = [line.strip() for line in open(label_filename).readlines()]
-    shuffled_labels_content = []
-
-    # use appropriate height
     if isdigit:
         height = DIGIT_HEIGHT
     else:
         height = FACE_HEIGHT
 
+    image_data = [line[:-1] for line in open(images_filename).readlines()]
+    label_data = [line[:-1] for line in open(label_filename).readlines()]
+    images = []
+
+    total_size = len(label_data)
+    rand_order = []
+
+    for counter in range(total_size):
+        rand_order.append(counter)
+
+    random.shuffle(rand_order)
+    # print(rand_order)
+    shuffled_data = []
+
+    for index in rand_order:
+        for counter in range(height):
+            shuffled_data.append(image_data[index*height + counter])
+
+    shuffled_data.reverse()
+
+    for _ in range(datasize):
+        temp = []
+        for _ in range(height):
+            val = shuffled_data.pop()
+            row_data = []
+            for item in val:
+                row_data.append(convert_pixel(item))
+            # temp.append(map(convert_pixel, list(val)))
+            temp.append(row_data)
+        images.append(temp)
+
+    shuffled_data = []
+
+    for index in rand_order:
+        shuffled_data.append(label_data[index])
+
+    labels = []
     for counter in range(datasize):
-        index = random.randint(0, len(labels_content)-1)
-        shuffled_labels_content.append(labels_content.pop(index))
+        labels.append(int(shuffled_data[counter]))
 
-        for image_counter in range(index*height, index*height + height):
-            shuffled_images_contents.append(images_contents.pop(image_counter))
+    return images, labels
 
-    labels_results = []
-    images_results = []
 
-    for counter in range(datasize):
-        labels_results.append(int(shuffled_labels_content[counter]))
-        temp_array = []
-        for image_counter in range(height):
-            row = shuffled_images_contents.pop()
-            convert_row = []
+def print_iterator(it):
+    for x in it:
+        print(x, end=' ')
+    print('')  # for new line
+
+
+def pretty_print(images):
+    for image in images:
+        for row in image:
             for item in row:
-                convert_row.append(convert_pixel(item))
-            temp_array.append(convert_row)
-        images_results.append(temp_array)
-    return images_results, labels_results
+                print(item, end="")
+            print("")
 
 
 # Test functions and verify proper operation
 if __name__ == "__main__":
-    print(convert_pixel(1))
-    print(convert_pixel('#'))
-    images, labels = load_file_contents("data/digitdata/testimages", 1, "data/digitdata/testlabels", True)
+    # print(convert_pixel(1))
+    # print(convert_pixel('#'))
+    images, labels = load_file_contents("data/digitdata/testimages", 3, "data/digitdata/testlabels", True)
     print(labels)
-    print(images)
+    pretty_print(images)

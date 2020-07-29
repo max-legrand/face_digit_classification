@@ -46,5 +46,5 @@ def get_accuracy(results_data, label_data):
         raw = int(label_data[counter])
         if result == raw:
             percentage += 1
-    percentage = percentage / len(results_data)
+    percentage = percentage / len(results_data) * 100
     return percentage

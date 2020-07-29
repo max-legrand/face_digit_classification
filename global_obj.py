@@ -18,6 +18,10 @@ class GlobalObj:
         self.verify_labels = []
         self.test_images = []
         self.test_labels = []
+        self.prev_prob = []
+        self.prob_array = []
+        self.count_one = []
+        self.count_two = []
 
     def load_digit_data(self, data_size):
         self.training_images, self.training_labels = load_data.load_file_contents(
@@ -27,12 +31,12 @@ class GlobalObj:
             True)
         self.verify_images, self.verify_labels = load_data.load_file_contents(
             "data/digitdata/validationimages",
-            data_size,
+            1000,
             "data/digitdata/validationlabels",
             True)
         self.test_images, self.test_labels = load_data.load_file_contents(
             "data/digitdata/testimages",
-            data_size,
+            1000,
             "data/digitdata/testlabels",
             True)
 
@@ -44,11 +48,11 @@ class GlobalObj:
             True)
         self.verify_images, self.verify_labels = load_data.load_file_contents(
             "data/facedata/facedatavalidation",
-            data_size,
+            301,
             "data/facedata/facedatavalidationlabels",
             True)
         self.test_images, self.test_labels = load_data.load_file_contents(
             "data/facedata/facedatatest",
-            data_size,
+            150,
             "data/facedata/facedatatestlabels",
             True)
