@@ -7,10 +7,14 @@ fileOverview:   Class file for global data
 '''
 
 import load_data
+from prodict import Prodict
 
 
-class GlobalObj:
+class GlobalObj:  # pylint: disable=too-many-instance-attributes
     def __init__(self):
+        """
+        Constructor for GlobalObj class
+        """
         super().__init__()
         self.training_images = []
         self.training_labels = []
@@ -18,12 +22,27 @@ class GlobalObj:
         self.verify_labels = []
         self.test_images = []
         self.test_labels = []
-        self.prev_prob = []
-        self.prob_array = []
-        self.count_one = []
-        self.count_two = []
+        self.digit_variables = Prodict.from_dict({
+            "prev_prob": [],
+            "prob_array": [],
+            "count_one": [],
+            "count_two": [],
+        })
+        self.face_variables = Prodict.from_dict({
+            "not_a_face_count": 0,
+            "is_a_face_count": 0,
+            "prev_prob": [],
+            "prob_array": [],
+            "pixels_count": []
+        })
 
     def load_digit_data(self, data_size):
+        """
+        Loads data for digits
+
+        Args:
+            data_size (int): size of training data
+        """
         self.training_images, self.training_labels = load_data.load_file_contents(
             "data/digitdata/trainingimages",
             data_size,
@@ -41,18 +60,24 @@ class GlobalObj:
             True)
 
     def load_face_data(self, data_size):
+        """
+        Loads data for faces
+
+        Args:
+            data_size (int): size of training data
+        """
         self.training_images, self.training_labels = load_data.load_file_contents(
             "data/facedata/facedatatrain",
             data_size,
             "data/facedata/facedatatrainlabels",
-            True)
+            False)
         self.verify_images, self.verify_labels = load_data.load_file_contents(
             "data/facedata/facedatavalidation",
             301,
             "data/facedata/facedatavalidationlabels",
-            True)
+            False)
         self.test_images, self.test_labels = load_data.load_file_contents(
             "data/facedata/facedatatest",
             150,
             "data/facedata/facedatatestlabels",
-            True)
+            False)

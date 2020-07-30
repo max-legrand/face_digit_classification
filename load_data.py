@@ -9,7 +9,6 @@ import random
 from util import convert_pixel
 
 # Globals to use with other files
-test = []
 DIGIT_WIDTH = 28
 DIGIT_HEIGHT = 28
 FACE_WIDTH = 60
@@ -47,7 +46,6 @@ def load_file_contents(images_filename, datasize, label_filename, isdigit):
         rand_order.append(counter)
 
     random.shuffle(rand_order)
-    # print(rand_order)
     shuffled_data = []
 
     for index in rand_order:
@@ -63,7 +61,6 @@ def load_file_contents(images_filename, datasize, label_filename, isdigit):
             row_data = []
             for item in val:
                 row_data.append(convert_pixel(item))
-            # temp.append(map(convert_pixel, list(val)))
             temp.append(row_data)
         images.append(temp)
 
@@ -79,13 +76,13 @@ def load_file_contents(images_filename, datasize, label_filename, isdigit):
     return images, labels
 
 
-def print_iterator(it):
-    for x in it:
-        print(x, end=' ')
-    print('')  # for new line
-
-
 def pretty_print(images):
+    """
+    Prints image as plain text
+
+    Args:
+        images (list): array containing images in array format
+    """
     for image in images:
         for row in image:
             for item in row:
@@ -95,8 +92,22 @@ def pretty_print(images):
 
 # Test functions and verify proper operation
 if __name__ == "__main__":
+    # TEST CONVERT_PIXEL FUNCTION
     # print(convert_pixel(1))
     # print(convert_pixel('#'))
-    images, labels = load_file_contents("data/digitdata/testimages", 3, "data/digitdata/testlabels", True)
-    print(labels)
-    pretty_print(images)
+
+    # LOAD DIGIT DATA TEST
+    # images_arr, labels_arr = load_file_contents("data/digitdata/testimages", 3, "data/digitdata/testlabels", True)
+    # print(labels_arr)
+    # pretty_print(images_arr)
+
+    # LOAD FACE DATA TEST
+    images_arr, labels_arr = load_file_contents(
+        "data/facedata/facedatatest",
+        3,
+        "data/facedata/facedatatestlabels",
+        False
+    )
+    print(len(images_arr[0]))
+    print(labels_arr)
+    pretty_print(images_arr)
