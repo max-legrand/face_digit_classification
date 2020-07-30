@@ -32,7 +32,7 @@ def get_past_prob_digit(global_obj: GlobalObj, data: list, training_size: int):
     Determines the previous probablility and stroes to global object
 
     Args:
-        global_obj (GlobalObj): GlobalObj to save data to
+        global_obj (GlobalObj): GlobalObj to save data to / read data from
         data (list): labels data
         training_size (int): size of training data
     """
@@ -52,7 +52,7 @@ def get_probability_digit(global_obj: GlobalObj, data_array: list, label_array: 
     Determines current probability
 
     Args:
-        global_obj (GlobalObj): GlobalObj to save data to
+        global_obj (GlobalObj): GlobalObj to save data to / read data from
         data_array (list): images data array
         label_array (list): labels data array
         training_size (int): size of training data
@@ -115,7 +115,7 @@ def naive_bayes_digit_train(global_obj: GlobalObj, training_size: int):
     Trains naive bayes model
 
     Args:
-        global_obj (GlobalObj): GlobalObj to save data to
+        global_obj (GlobalObj): GlobalObj to save data to / read data from
         training_size (int): size of training data
     """
     get_past_prob_digit(global_obj, global_obj.training_labels, training_size)
@@ -127,7 +127,7 @@ def determine_digit(global_obj: GlobalObj, feat: list):
     Determines the most likely digit for an image
 
     Args:
-        global_obj (GlobalObj): GlobalObj to save data to
+        global_obj (GlobalObj): GlobalObj to save data to / read data from
         feat (list): features arrays
 
     Returns:
@@ -167,7 +167,7 @@ def naive_bayes_digit_predict(global_obj: GlobalObj):
     Predicts digits for test data
 
     Args:
-        global_obj (GlobalObj): GlobalObj to save data to
+        global_obj (GlobalObj): GlobalObj to save data to / read data from
 
     Returns:
         list: array of digits
@@ -184,7 +184,7 @@ def naive_bayes_face_train(global_obj: GlobalObj, training_size: int):
     Train the model using face data
 
     Args:
-        global_obj (GlobalObj): GlobalObj to save data to
+        global_obj (GlobalObj): GlobalObj to save data to / read data from
         training_size (int): size of training_data
     """
     count_faces(global_obj, global_obj.training_labels, training_size)
@@ -197,7 +197,7 @@ def get_past_prob_face(global_obj: GlobalObj, training_size: int):
     Determines the previous probability based on face count
 
     Args:
-        global_obj (GlobalObj): GlobalObj to save data to
+        global_obj (GlobalObj): GlobalObj to save data to / read data from
         training_size (int): size of training data
     """
     global_obj.face_variables.prev_prob.append(
@@ -217,7 +217,7 @@ def count_faces(global_obj: GlobalObj, labels_array: list, training_size: int):
     Counts number of faces present in the dataset
 
     Args:
-        global_obj (GlobalObj): GlobalObj to save data to
+        global_obj (GlobalObj): GlobalObj to save data to / read data from
         labels_array (list): labels array containing information about face
         training_size (int): size of training data
     """
@@ -233,7 +233,7 @@ def get_probability_face(global_obj: GlobalObj, training_size: int):
     Determines probablility that image is a face
 
     Args:
-        global_obj (GlobalObj): GlobalObj to save data to
+        global_obj (GlobalObj): GlobalObj to save data to / read data from
         training_size (int): size of training data
     """
     local_counts = []
@@ -255,3 +255,57 @@ def get_probability_face(global_obj: GlobalObj, training_size: int):
                 (global_obj.face_variables.pixels_count[counter_two][counter] + 0.01) /
                 (local_counts[counter_two] + 0.01)
             )
+
+
+def determine_face(global_obj: GlobalObj, feat: list):
+    """
+    Determines the whether an image has a face or not
+
+    Args:
+        global_obj (GlobalObj): GlobalObj to save data to / read data from
+        feat (list): features arrays
+
+    Returns:
+        string: "0" if no face, "1" if face present
+    """
+    miss = 0.0000000000001
+    probability = []
+    local_count = []
+    for _ in range(2):
+        local_count.append(0)
+        probability.append(0)
+    for count in range(len(feat)):
+        if feat[count] == 1:
+            for count_two in range(2):
+                local_count[count_two] += log(global_obj.face_variables.prob_array[count_two][count])
+        else:
+            for count_two in range(2):
+                if(global_obj.face_variables.prob_array[count_two][count] == 1):
+                    global_obj.face_variables.prob_array[count_two][count] -= miss
+            for count_two in range(2):
+                local_count[count_two] += log(1-global_obj.face_variables.prob_array[count_two][count])
+
+    for count in range(2):
+        probability[count] = log(global_obj.face_variables.prev_prob[count])+local_count[count]
+
+    face_results = {
+                        '0': probability[0], '1': probability[1]
+                    }
+    return max(face_results, key=lambda item: face_results[item])
+
+
+def naive_bayes_face_predict(global_obj: GlobalObj):
+    """
+    Predicts if image contains face
+
+    Args:
+        global_obj (GlobalObj): GlobalObj to save data to / read data from
+
+    Returns:
+        [list]: array containing whether each image is predicted to have a face or not
+    """
+    results = []
+    for item in range(len(global_obj.test_images)):
+        value = determine_face(global_obj, extract_feature(global_obj.test_images[item], False))
+        results.append(value)
+    return results

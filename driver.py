@@ -10,7 +10,12 @@ import argparse
 import timeit
 from statistics import mean, stdev
 from global_obj import GlobalObj
-from process_data import naive_bayes_digit_train, naive_bayes_digit_predict, naive_bayes_face_train
+from process_data import (
+    naive_bayes_digit_train,
+    naive_bayes_digit_predict,
+    naive_bayes_face_predict,
+    naive_bayes_face_train
+)
 from util import get_accuracy
 
 
@@ -103,11 +108,11 @@ if __name__ == "__main__":
                     print("Training Finished...")
                     print(f"Elapsed Time: {delta_time} sec")
                     time_results.append(delta_time)
-                    # print("Testing Data")
+                    print("Testing Data")
                     # TEST THE DATA
-                    # prediction_results = naive_bayes_digit_predict(GLOBALS)
-                    # results.append(get_accuracy(prediction_results, GLOBALS.test_labels))
-                    # print(f"Accuracy: {results[iteration]}%")
+                    prediction_results = naive_bayes_face_predict(GLOBALS)
+                    results.append(get_accuracy(prediction_results, GLOBALS.test_labels))
+                    print(f"Accuracy: {results[iteration]}%")
                 format_print(
                                 "Summary\n" + f"Training Size: {10*(counter+1)}%\n" +
                                 f"Average Training Time: {mean(time_results)} sec\n" +
