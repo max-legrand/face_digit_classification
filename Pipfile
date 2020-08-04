@@ -10,6 +10,7 @@ flake8 = "*"
 pylint = "*"
 pycodestyle = "*"
 prodict = "*"
+numpy = "*"
 
 [requires]
 python_version = "3.7"

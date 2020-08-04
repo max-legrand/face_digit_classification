@@ -27,6 +27,10 @@ class GlobalObj:  # pylint: disable=too-many-instance-attributes
             "prob_array": [],
             "count_one": [],
             "count_two": [],
+            "weights": [],
+            "val_array": [],
+            "val_array_two": [],
+            "scores": []
         })
         self.face_variables = Prodict.from_dict({
             "not_a_face_count": 0,
