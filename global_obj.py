@@ -6,8 +6,8 @@ lastChangedBy:  Max Legrand
 fileOverview:   Class file for global data
 '''
 
-import load_data
 from prodict import Prodict
+import load_data
 
 
 class GlobalObj:  # pylint: disable=too-many-instance-attributes
@@ -22,22 +22,24 @@ class GlobalObj:  # pylint: disable=too-many-instance-attributes
         self.verify_labels = []
         self.test_images = []
         self.test_labels = []
-        self.digit_variables = Prodict.from_dict({
+        self.digit_variables_bayes = Prodict.from_dict({
             "prev_prob": [],
             "prob_array": [],
             "count_one": [],
             "count_two": [],
-            "weights": [],
-            "val_array": [],
-            "val_array_two": [],
-            "scores": []
         })
-        self.face_variables = Prodict.from_dict({
+        self.face_variables_bayes = Prodict.from_dict({
             "not_a_face_count": 0,
             "is_a_face_count": 0,
             "prev_prob": [],
             "prob_array": [],
-            "pixels_count": []
+            "pixels_count": [],
+        })
+        self.percep_variables = Prodict.from_dict({
+            "weights": [],
+            "val_array": [],
+            "val_array_two": [],
+            "scores": []
         })
 
     def load_digit_data(self, data_size):

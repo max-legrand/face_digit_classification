@@ -1,383 +1,383 @@
 =====================================
-Naive Bayes Faces Classification:
+Perceptron Face Classification:
 =====================================
 Run #1
 Using training size: 45
 Training Finished...
-Elapsed Time: 0.09323379799999998 sec
+Elapsed Time: 0.08181937600000011 sec
 Testing Data
-Accuracy: 66.0%
+Accuracy: 64.0%
 Run #2
 Using training size: 45
 Training Finished...
-Elapsed Time: 0.1023064429999998 sec
+Elapsed Time: 0.07356881300000007 sec
 Testing Data
-Accuracy: 80.66666666666666%
+Accuracy: 60.66666666666667%
 Run #3
 Using training size: 45
 Training Finished...
-Elapsed Time: 0.09027585299999963 sec
+Elapsed Time: 0.0992278630000003 sec
 Testing Data
-Accuracy: 84.66666666666667%
+Accuracy: 79.33333333333333%
 Run #4
 Using training size: 45
 Training Finished...
-Elapsed Time: 0.08993242000000023 sec
+Elapsed Time: 0.07436304400000004 sec
 Testing Data
-Accuracy: 85.33333333333334%
+Accuracy: 82.0%
 Run #5
 Using training size: 45
 Training Finished...
-Elapsed Time: 0.08950045600000323 sec
+Elapsed Time: 0.07210313500000076 sec
 Testing Data
-Accuracy: 85.33333333333334%
+Accuracy: 74.66666666666667%
 =====================================
 Summary
 Training Size: 10%
-Average Training Time: 0.09304979400000057 sec
-Mean Accuracy: 80.4%
-Standard Deviation: 8.281170072989555%
+Average Training Time: 0.08021644620000026 sec
+Mean Accuracy: 72.13333333333334%
+Standard Deviation: 9.397399167381955%
 
 =====================================
 Run #6
 Using training size: 90
 Training Finished...
-Elapsed Time: 0.15958949299999858 sec
+Elapsed Time: 0.1428460549999997 sec
 Testing Data
-Accuracy: 86.0%
+Accuracy: 78.0%
 Run #7
 Using training size: 90
 Training Finished...
-Elapsed Time: 0.1599323369999972 sec
+Elapsed Time: 0.13974865299999983 sec
 Testing Data
-Accuracy: 87.33333333333333%
+Accuracy: 88.0%
 Run #8
 Using training size: 90
 Training Finished...
-Elapsed Time: 0.16364845300000042 sec
+Elapsed Time: 0.146007105999999 sec
 Testing Data
-Accuracy: 87.33333333333333%
+Accuracy: 82.0%
 Run #9
 Using training size: 90
 Training Finished...
-Elapsed Time: 0.16898194200000205 sec
+Elapsed Time: 0.13945686899999998 sec
 Testing Data
-Accuracy: 86.66666666666667%
+Accuracy: 76.0%
 Run #10
 Using training size: 90
 Training Finished...
-Elapsed Time: 0.15850996200000367 sec
+Elapsed Time: 0.14175052100000052 sec
 Testing Data
-Accuracy: 88.0%
+Accuracy: 89.33333333333333%
 =====================================
 Summary
 Training Size: 20%
-Average Training Time: 0.16213243740000038 sec
-Mean Accuracy: 87.06666666666666%
-Standard Deviation: 0.7601169500660906%
+Average Training Time: 0.1419618407999998 sec
+Mean Accuracy: 82.66666666666667%
+Standard Deviation: 5.906681715556449%
 
 =====================================
 Run #11
 Using training size: 135
 Training Finished...
-Elapsed Time: 0.2328309679999947 sec
+Elapsed Time: 0.20386997299999976 sec
 Testing Data
-Accuracy: 88.0%
+Accuracy: 84.0%
 Run #12
 Using training size: 135
 Training Finished...
-Elapsed Time: 0.23248169800000085 sec
+Elapsed Time: 0.20747354899999948 sec
 Testing Data
-Accuracy: 89.33333333333333%
+Accuracy: 84.66666666666667%
 Run #13
 Using training size: 135
 Training Finished...
-Elapsed Time: 0.22832905799999992 sec
+Elapsed Time: 0.20574476400000208 sec
 Testing Data
-Accuracy: 88.66666666666667%
+Accuracy: 86.66666666666667%
 Run #14
 Using training size: 135
 Training Finished...
-Elapsed Time: 0.23051322000000596 sec
+Elapsed Time: 0.20769725200000266 sec
 Testing Data
-Accuracy: 88.0%
+Accuracy: 86.0%
 Run #15
 Using training size: 135
 Training Finished...
-Elapsed Time: 0.23056850200001122 sec
+Elapsed Time: 0.20320981100000068 sec
 Testing Data
-Accuracy: 88.66666666666667%
+Accuracy: 85.33333333333334%
 =====================================
 Summary
 Training Size: 30%
-Average Training Time: 0.23094468920000252 sec
-Mean Accuracy: 88.53333333333333%
-Standard Deviation: 0.5577733510227159%
+Average Training Time: 0.20559906980000092 sec
+Mean Accuracy: 85.33333333333334%
+Standard Deviation: 1.0540925533894605%
 
 =====================================
 Run #16
 Using training size: 180
 Training Finished...
-Elapsed Time: 0.29905505499999663 sec
+Elapsed Time: 0.2775514369999996 sec
 Testing Data
-Accuracy: 89.33333333333333%
+Accuracy: 86.0%
 Run #17
 Using training size: 180
 Training Finished...
-Elapsed Time: 0.2983299660000114 sec
+Elapsed Time: 0.26883043300000153 sec
 Testing Data
-Accuracy: 89.33333333333333%
+Accuracy: 85.33333333333334%
 Run #18
 Using training size: 180
 Training Finished...
-Elapsed Time: 0.29822254100000123 sec
+Elapsed Time: 0.26999280300000095 sec
 Testing Data
-Accuracy: 88.66666666666667%
+Accuracy: 87.33333333333333%
 Run #19
 Using training size: 180
 Training Finished...
-Elapsed Time: 0.30210658699999726 sec
+Elapsed Time: 0.26888286900000224 sec
 Testing Data
-Accuracy: 88.66666666666667%
+Accuracy: 86.0%
 Run #20
 Using training size: 180
 Training Finished...
-Elapsed Time: 0.3016857159999944 sec
+Elapsed Time: 0.2691344340000015 sec
 Testing Data
-Accuracy: 88.66666666666667%
+Accuracy: 86.66666666666667%
 =====================================
 Summary
 Training Size: 40%
-Average Training Time: 0.2998799730000002 sec
-Mean Accuracy: 88.93333333333334%
-Standard Deviation: 0.36514837167010555%
+Average Training Time: 0.2708783952000012 sec
+Mean Accuracy: 86.26666666666667%
+Standard Deviation: 0.760116950066088%
 
 =====================================
 Run #21
 Using training size: 225
 Training Finished...
-Elapsed Time: 0.3694912950000031 sec
+Elapsed Time: 0.33703704000000556 sec
 Testing Data
-Accuracy: 88.0%
+Accuracy: 85.33333333333334%
 Run #22
 Using training size: 225
 Training Finished...
-Elapsed Time: 0.3696841479999904 sec
+Elapsed Time: 0.33553382800000264 sec
 Testing Data
-Accuracy: 90.0%
+Accuracy: 86.0%
 Run #23
 Using training size: 225
 Training Finished...
-Elapsed Time: 0.3719569799999931 sec
+Elapsed Time: 0.3356023270000037 sec
 Testing Data
-Accuracy: 90.0%
+Accuracy: 86.0%
 Run #24
 Using training size: 225
 Training Finished...
-Elapsed Time: 0.37408468600000333 sec
+Elapsed Time: 0.3364017419999996 sec
 Testing Data
-Accuracy: 90.0%
+Accuracy: 86.0%
 Run #25
 Using training size: 225
 Training Finished...
-Elapsed Time: 0.37190116299998977 sec
+Elapsed Time: 0.3364812279999967 sec
 Testing Data
-Accuracy: 90.0%
+Accuracy: 86.0%
 =====================================
 Summary
 Training Size: 50%
-Average Training Time: 0.3714236543999959 sec
-Mean Accuracy: 89.6%
-Standard Deviation: 0.8944271909999159%
+Average Training Time: 0.33621123300000166 sec
+Mean Accuracy: 85.86666666666667%
+Standard Deviation: 0.29814239699996775%
 
 =====================================
 Run #26
 Using training size: 270
 Training Finished...
-Elapsed Time: 0.44344494699998904 sec
+Elapsed Time: 0.40187827100000106 sec
 Testing Data
-Accuracy: 88.0%
+Accuracy: 86.0%
 Run #27
 Using training size: 270
 Training Finished...
-Elapsed Time: 0.44673022599998546 sec
+Elapsed Time: 0.4030864190000045 sec
 Testing Data
-Accuracy: 89.33333333333333%
+Accuracy: 86.0%
 Run #28
 Using training size: 270
 Training Finished...
-Elapsed Time: 0.4437240519999932 sec
+Elapsed Time: 0.44118149200000545 sec
 Testing Data
-Accuracy: 90.0%
+Accuracy: 86.0%
 Run #29
 Using training size: 270
 Training Finished...
-Elapsed Time: 0.4447407010000006 sec
+Elapsed Time: 0.40386373300000145 sec
 Testing Data
-Accuracy: 90.0%
+Accuracy: 86.0%
 Run #30
 Using training size: 270
 Training Finished...
-Elapsed Time: 0.4425202319999926 sec
+Elapsed Time: 0.40339054300000043 sec
 Testing Data
-Accuracy: 88.66666666666667%
+Accuracy: 86.0%
 =====================================
 Summary
 Training Size: 60%
-Average Training Time: 0.4442320315999922 sec
-Mean Accuracy: 89.2%
-Standard Deviation: 0.8692269873603523%
+Average Training Time: 0.4106800916000026 sec
+Mean Accuracy: 86.0%
+Standard Deviation: 0.0%
 
 =====================================
 Run #31
 Using training size: 315
 Training Finished...
-Elapsed Time: 0.5347007260000112 sec
+Elapsed Time: 0.4699387750000028 sec
 Testing Data
-Accuracy: 88.0%
+Accuracy: 86.0%
 Run #32
 Using training size: 315
 Training Finished...
-Elapsed Time: 0.5112418649999881 sec
+Elapsed Time: 0.4753216249999994 sec
 Testing Data
-Accuracy: 88.66666666666667%
+Accuracy: 86.0%
 Run #33
 Using training size: 315
 Training Finished...
-Elapsed Time: 0.5166747950000001 sec
+Elapsed Time: 0.48120378800000196 sec
 Testing Data
-Accuracy: 88.66666666666667%
+Accuracy: 86.0%
 Run #34
 Using training size: 315
 Training Finished...
-Elapsed Time: 0.5139645609999945 sec
+Elapsed Time: 0.47017252300000223 sec
 Testing Data
-Accuracy: 88.0%
+Accuracy: 86.0%
 Run #35
 Using training size: 315
 Training Finished...
-Elapsed Time: 0.5126577109999744 sec
+Elapsed Time: 0.4748829540000088 sec
 Testing Data
-Accuracy: 87.33333333333333%
+Accuracy: 86.0%
 =====================================
 Summary
 Training Size: 70%
-Average Training Time: 0.5178479315999936 sec
-Mean Accuracy: 88.13333333333334%
-Standard Deviation: 0.557773351022721%
+Average Training Time: 0.47430393300000306 sec
+Mean Accuracy: 86.0%
+Standard Deviation: 0.0%
 
 =====================================
 Run #36
 Using training size: 360
 Training Finished...
-Elapsed Time: 0.5896583980000116 sec
+Elapsed Time: 0.5352590220000053 sec
 Testing Data
-Accuracy: 87.33333333333333%
+Accuracy: 86.0%
 Run #37
 Using training size: 360
 Training Finished...
-Elapsed Time: 0.5822513399999991 sec
+Elapsed Time: 0.5359970389999944 sec
 Testing Data
-Accuracy: 88.0%
+Accuracy: 86.0%
 Run #38
 Using training size: 360
 Training Finished...
-Elapsed Time: 0.5939703569999892 sec
+Elapsed Time: 0.5350361109999966 sec
 Testing Data
-Accuracy: 88.0%
+Accuracy: 86.0%
 Run #39
 Using training size: 360
 Training Finished...
-Elapsed Time: 0.5856923070000164 sec
+Elapsed Time: 0.5355659420000052 sec
 Testing Data
-Accuracy: 88.0%
+Accuracy: 86.0%
 Run #40
 Using training size: 360
 Training Finished...
-Elapsed Time: 0.5881206709999844 sec
+Elapsed Time: 0.534965047 sec
 Testing Data
-Accuracy: 88.0%
+Accuracy: 86.0%
 =====================================
 Summary
 Training Size: 80%
-Average Training Time: 0.5879386146000002 sec
-Mean Accuracy: 87.86666666666666%
-Standard Deviation: 0.2981423969999741%
+Average Training Time: 0.5353646322000003 sec
+Mean Accuracy: 86.0%
+Standard Deviation: 0.0%
 
 =====================================
 Run #41
 Using training size: 405
 Training Finished...
-Elapsed Time: 0.6512084479999771 sec
+Elapsed Time: 0.6041795360000037 sec
 Testing Data
-Accuracy: 88.0%
+Accuracy: 86.0%
 Run #42
 Using training size: 405
 Training Finished...
-Elapsed Time: 0.6508331200000157 sec
+Elapsed Time: 0.6027352229999963 sec
 Testing Data
-Accuracy: 88.0%
+Accuracy: 86.0%
 Run #43
 Using training size: 405
 Training Finished...
-Elapsed Time: 0.6504889810000236 sec
+Elapsed Time: 0.6078411479999914 sec
 Testing Data
-Accuracy: 88.66666666666667%
+Accuracy: 86.0%
 Run #44
 Using training size: 405
 Training Finished...
-Elapsed Time: 0.6498688249999987 sec
+Elapsed Time: 0.6043913630000048 sec
 Testing Data
-Accuracy: 88.66666666666667%
+Accuracy: 86.0%
 Run #45
 Using training size: 405
 Training Finished...
-Elapsed Time: 0.6579283910000129 sec
+Elapsed Time: 0.6201268760000005 sec
 Testing Data
-Accuracy: 88.66666666666667%
+Accuracy: 86.0%
 =====================================
 Summary
 Training Size: 90%
-Average Training Time: 0.6520655530000056 sec
-Mean Accuracy: 88.4%
-Standard Deviation: 0.3651483716701134%
+Average Training Time: 0.6078548291999993 sec
+Mean Accuracy: 86.0%
+Standard Deviation: 0.0%
 
 =====================================
 Run #46
 Using training size: 450
 Training Finished...
-Elapsed Time: 0.7247900909999885 sec
+Elapsed Time: 0.670305667000008 sec
 Testing Data
-Accuracy: 88.66666666666667%
+Accuracy: 86.0%
 Run #47
 Using training size: 450
 Training Finished...
-Elapsed Time: 0.729148619 sec
+Elapsed Time: 0.6748934959999957 sec
 Testing Data
-Accuracy: 88.66666666666667%
+Accuracy: 86.0%
 Run #48
 Using training size: 450
 Training Finished...
-Elapsed Time: 0.7296066969999799 sec
+Elapsed Time: 0.6687063840000036 sec
 Testing Data
-Accuracy: 88.66666666666667%
+Accuracy: 86.0%
 Run #49
 Using training size: 450
 Training Finished...
-Elapsed Time: 0.7267672529999913 sec
+Elapsed Time: 0.6683364680000068 sec
 Testing Data
-Accuracy: 88.66666666666667%
+Accuracy: 86.0%
 Run #50
 Using training size: 450
 Training Finished...
-Elapsed Time: 0.7283143189999919 sec
+Elapsed Time: 0.6697762069999982 sec
 Testing Data
-Accuracy: 88.66666666666667%
+Accuracy: 86.0%
 =====================================
 Summary
 Training Size: 100%
-Average Training Time: 0.7277253957999903 sec
-Mean Accuracy: 88.66666666666667%
+Average Training Time: 0.6704036444000024 sec
+Mean Accuracy: 86.0%
 Standard Deviation: 0.0%
 
 =====================================

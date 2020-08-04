@@ -90,6 +90,19 @@ def pretty_print(images):
             print("")
 
 
+def pretty_print_single(image):
+    """
+    Prints single image as plain text
+
+    Args:
+        images (list): array containing images in array format
+    """
+    for row in image:
+        for item in row:
+            print(item, end="")
+        print("")
+
+
 # Test functions and verify proper operation
 if __name__ == "__main__":
     # TEST CONVERT_PIXEL FUNCTION
