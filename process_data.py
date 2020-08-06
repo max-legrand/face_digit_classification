@@ -315,8 +315,8 @@ def get_weights_digits(globject: GlobalObj, data_size: int):
         globject (GlobalObj): GlobalObj to read data from / save data to
         data_size (int): size of training data
     """
-    val_array = globject.percep_variables.val_array
-    val_array_two = globject.percep_variables.val_array_two
+    weights_array = globject.percep_variables.weights_array
+    bias_array = globject.percep_variables.bias_array
     weights = globject.percep_variables.weights
     scores = globject.percep_variables.scores
 
@@ -324,30 +324,30 @@ def get_weights_digits(globject: GlobalObj, data_size: int):
         weights.append(np.zeros(784))
 
     for item in globject.percep_variables.weights:
-        val_array.append(item)
+        weights_array.append(item)
 
-    val_array_two = np.zeros(10)
+    bias_array = np.zeros(10)
 
     for counter in range(data_size):
         features = extract_feature(globject.training_images[counter], True)
         scores = []
         for counter_two in range(10):
             scores.append(
-                np.dot(val_array[counter_two], features) +
-                val_array_two[counter_two]
+                np.dot(weights_array[counter_two], features) +
+                bias_array[counter_two]
             )
         if globject.training_labels[counter] != scores.index(max(scores)):
-            val_array[scores.index(max(scores))] = np.subtract(
-                val_array[scores.index(max(scores))], np.asarray(features).transpose()
+            weights_array[scores.index(max(scores))] = np.subtract(
+                weights_array[scores.index(max(scores))], np.asarray(features).transpose()
             )
-            val_array[globject.training_labels[counter]] = np.add(
-                val_array[globject.training_labels[counter]], np.asarray(features).transpose()
+            weights_array[globject.training_labels[counter]] = np.add(
+                weights_array[globject.training_labels[counter]], np.asarray(features).transpose()
             )
-            val_array_two[scores.index(max(scores))] = val_array_two[scores.index(max(scores))] - 1
-            val_array_two[globject.training_labels[counter]] = val_array_two[globject.training_labels[counter]] + 1
+            bias_array[scores.index(max(scores))] = bias_array[scores.index(max(scores))] - 1
+            bias_array[globject.training_labels[counter]] = bias_array[globject.training_labels[counter]] + 1
 
-    globject.percep_variables.val_array = val_array
-    globject.percep_variables.val_array_two = val_array_two
+    globject.percep_variables.weights_array = weights_array
+    globject.percep_variables.bias_array = bias_array
     globject.percep_variables.weights = weights
     globject.percep_variables.scores = scores
 
@@ -364,10 +364,10 @@ def determine_digit_perceptron(globject: GlobalObj, feat: list):
         [int]: most likely digit
     """
     result = list(np.zeros(10, dtype=int))
-    val_array = globject.percep_variables.val_array
-    val_array_two = globject.percep_variables.val_array_two
+    weights_array = globject.percep_variables.weights_array
+    bias_array = globject.percep_variables.bias_array
     for counter in range(10):
-        result[counter] = np.dot(val_array[counter], feat) + val_array_two[counter]
+        result[counter] = np.dot(weights_array[counter], feat) + bias_array[counter]
     digit_results = {
         "0": result[0],
         "1": result[1],
@@ -419,8 +419,8 @@ def get_weights_face(globject: GlobalObj, data_size: int):
         globject (GlobalObj): GlobalObj to read data from / write data to
         data_size (int): training data size
     """
-    val_array = globject.percep_variables.val_array
-    val_array_two = globject.percep_variables.val_array_two
+    weights_array = globject.percep_variables.weights_array
+    bias_array = globject.percep_variables.bias_array
     weights = globject.percep_variables.weights
     scores = globject.percep_variables.scores
 
@@ -428,31 +428,31 @@ def get_weights_face(globject: GlobalObj, data_size: int):
         weights.append(np.zeros(4200))
 
     for item in weights:
-        val_array.append(item)
+        weights_array.append(item)
 
-    val_array_two = np.zeros(2)
+    bias_array = np.zeros(2)
 
     for counter in range(data_size):
         feats = extract_feature(globject.training_images[counter], False)
         scores = []
         for counter_two in range(2):
             scores.append(
-                np.dot(val_array[counter_two], feats) +
-                val_array_two[counter_two]
+                np.dot(weights_array[counter_two], feats) +
+                bias_array[counter_two]
             )
 
         if globject.training_labels[counter] != scores.index(max(scores)):
-            val_array[scores.index(max(scores))] = np.subtract(
-                val_array[scores.index(max(scores))], np.asarray(feats).transpose()
+            weights_array[scores.index(max(scores))] = np.subtract(
+                weights_array[scores.index(max(scores))], np.asarray(feats).transpose()
             )
-            val_array[globject.training_labels[counter]] = np.add(
-                val_array[globject.training_labels[counter]], np.asarray(feats).transpose()
+            weights_array[globject.training_labels[counter]] = np.add(
+                weights_array[globject.training_labels[counter]], np.asarray(feats).transpose()
             )
-            val_array_two[scores.index(max(scores))] = val_array_two[scores.index(max(scores))] - 1
-            val_array_two[globject.training_labels[counter]] = val_array_two[globject.training_labels[counter]] + 1
+            bias_array[scores.index(max(scores))] = bias_array[scores.index(max(scores))] - 1
+            bias_array[globject.training_labels[counter]] = bias_array[globject.training_labels[counter]] + 1
 
-    globject.percep_variables.val_array = val_array
-    globject.percep_variables.val_array_two = val_array_two
+    globject.percep_variables.weights_array = weights_array
+    globject.percep_variables.bias_array = bias_array
     globject.percep_variables.weights = weights
     globject.percep_variables.scores = scores
 
@@ -485,10 +485,10 @@ def determine_face_perceptron(globject: GlobalObj, feats: list):
         string: string containing 0 if image isn't a face; 1 otherwise
     """
     result = list(np.zeros(2, dtype=int))
-    val_array = globject.percep_variables.val_array
-    val_array_two = globject.percep_variables.val_array_two
+    weights_array = globject.percep_variables.weights_array
+    bias_array = globject.percep_variables.bias_array
     for counter in range(2):
-        result[counter] = np.dot(val_array[counter], feats) + val_array_two[counter]
+        result[counter] = np.dot(weights_array[counter], feats) + bias_array[counter]
     face_results = {
         "0": result[0],
         "1": result[1],

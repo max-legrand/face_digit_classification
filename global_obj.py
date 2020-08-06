@@ -37,8 +37,8 @@ class GlobalObj:  # pylint: disable=too-many-instance-attributes
         })
         self.percep_variables = Prodict.from_dict({
             "weights": [],
-            "val_array": [],
-            "val_array_two": [],
+            "weights_array": [],
+            "bias_array": [],
             "scores": []
         })
 
